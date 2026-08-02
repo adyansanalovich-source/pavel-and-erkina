@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Свадебное приглашение</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Подключаем шрифты: строгий для текста и рукописный для имен -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="invitation-card">
+        <!-- Место для цветочного фона -->
+        <div class="floral-bg"></div>
+
+        <!-- Золотой шестиугольник (ШИРОКИЙ) -->
+        <svg class="hexagon" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <polygon points="20,2 80,2 98,50 80,98 20,98 2,50" />
+        </svg>
+
+        <div class="content">
+            <!-- Классы delay-1, delay-2 и т.д. отвечают за очередь появления текста -->
+            <p id="guest-name" class="fade-text delay-1">Дорогие гости!</p>
+            <p class="fade-text delay-2">Мы приглашаем Вас на свадебное торжество!</p>
+            
+            <div class="names fade-text delay-3">
+                <span class="name">Pavel</span>
+                <span class="ampersand">&</span>
+                <span class="name">Erkina</span>
+            </div>
+            
+            <div class="details fade-text delay-4">
+                <p>28 ноября</p>
+                <p>17:00 фуршет</p>
+                <p>17:30 основная часть</p>
+                <br>
+                <p>ул. В.И. Ленина, 367, Элиста</p>
+                <p>ресторан "Иткл"</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

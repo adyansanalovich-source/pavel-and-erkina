@@ -1,0 +1,148 @@
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f7f7f7; /* Светлый фон за пределами открытки */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Cormorant Garamond', serif;
+    color: #5b5b5b;
+}
+
+.invitation-card {
+    position: relative;
+    width: 90vw;
+    max-width: 800px;
+    aspect-ratio: 4 / 3; /* Пропорции экрана как на видео */
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* Легкая тень для красоты */
+}
+
+/* Настройки цветочного фона */
+.floral-bg {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    /* Укажи здесь название своей картинки с прозрачным фоном */
+    background: url('flowers.png') no-repeat center center/cover;
+    opacity: 0;
+    z-index: 1;
+    /* Цветы начнут появляться ровно через 1.5 секунды, после золотой рамки */
+    animation: floralAppear 1.5s ease-out forwards 1.5s;
+}
+
+/* Белая подложка под текст (ШИРОКАЯ) */
+.invitation-card::after {
+    content: '';
+    position: absolute;
+    top: 5%; left: 5%; right: 5%; bottom: 5%;
+    background: rgba(255, 255, 255, 0.8);
+    /* Координаты углов теперь соответствуют широкому шестиугольнику */
+    clip-path: polygon(20% 0%, 80% 0%, 100% 50%, 80% 100%, 20% 100%, 0% 50%);
+    z-index: 2;
+    opacity: 0;
+    animation: fadeIn 2s ease forwards 1.5s;
+}
+
+/* Золотой шестиугольник (ШИРОКИЙ) */
+.hexagon {
+    position: absolute;
+    top: 5%; left: 5%; width: 90%; height: 90%; /* Растянули на 90% ширины */
+    fill: none;
+    stroke: #c5a059;
+    stroke-width: 0.5;
+    z-index: 3;
+    transform: scale(0);
+    /* Меняем popIn на spinIn */
+    animation: spinIn 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards 0.2s;
+}
+
+
+.content {
+    position: relative;
+    z-index: 4;
+    padding: 20px;
+    width: 60%;
+}
+
+.content p {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    /* Добавляем плотное белое свечение вокруг букв */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 1), 0 0 20px rgba(255, 255, 255, 1);
+    /* Можно сделать сам текст чуть темнее для контраста */
+    color: #333333; 
+}
+
+/* Стили для имен */
+.names {
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.name {
+    font-family: 'Great Vibes', cursive;
+    font-size: 4rem;
+    color: #4a4a4a;
+    line-height: 0.8;
+    /* Белое облачко вокруг имен */
+    text-shadow: 0 0 15px rgba(255, 255, 255, 1);
+}
+
+.ampersand {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.5rem;
+    color: #c5a059;
+    margin: 5px 0;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 1);
+}
+
+.details {
+    margin-top: 15px;
+    font-size: 1.1rem;
+}
+
+/* --- АНИМАЦИИ (Та самая магия из видео) --- */
+
+/* Начальное состояние текста — невидимый и чуть сдвинут вниз */
+.fade-text {
+    opacity: 0;
+    transform: translateY(15px);
+}
+
+@keyframes popIn {
+    0% { transform: scale(0); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+@keyframes textAppear {
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes spinIn {
+    0% { transform: scale(0) rotate(-90deg); opacity: 0; }
+    100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+@keyframes floralAppear {
+    0% { opacity: 0; transform: scale(0.95); } /* Слегка уменьшены и прозрачны */
+    100% { opacity: 1; transform: scale(1); }  /* Встают в реальный размер */
+}
+/* Очередь появления текста (сдвинули тайминги) */
+.delay-1 { animation: textAppear 1s ease forwards 3.0s; } /* Текст пойдет через 3 сек */
+.delay-2 { animation: textAppear 1s ease forwards 3.5s; }
+.delay-3 { animation: textAppear 1s ease forwards 4.5s; } 
+.delay-4 { animation: textAppear 1s ease forwards 5.5s; }
