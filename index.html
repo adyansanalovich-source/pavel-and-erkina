@@ -5,22 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Свадебное приглашение</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Подключаем шрифты: строгий для текста и рукописный для имен -->
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Great+Vibes&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <div class="invitation-card">
-        <!-- Место для цветочного фона -->
         <div class="floral-bg"></div>
 
-        <!-- Золотой шестиугольник (ШИРОКИЙ) -->
         <svg class="hexagon" viewBox="0 0 100 100" preserveAspectRatio="none">
             <polygon points="20,2 80,2 98,50 80,98 20,98 2,50" />
         </svg>
 
         <div class="content">
-            <!-- Классы delay-1, delay-2 и т.д. отвечают за очередь появления текста -->
             <p id="guest-name" class="fade-text delay-1">Дорогие гости!</p>
             <p class="fade-text delay-2">Мы приглашаем Вас на свадебное торжество!</p>
             
@@ -39,7 +35,35 @@
                 <p>ресторан "Иткл"</p>
             </div>
         </div>
-    </div>
+
+        <div class="rsvp-section">
+            <h3>Подтверждение присутствия</h3>
+            <form id="rsvp-form">
+                <input type="text" id="guest-name-input" name="Имя" placeholder="Ваше имя и фамилия" required>
+
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="Присутствие" value="Приду" required>
+                        С удовольствием приду!
+                    </label>
+                    <label>
+                        <input type="radio" name="Присутствие" value="Не приду">
+                        К сожалению, не смогу
+                    </label>
+                </div>
+
+                <select name="Напитки" id="drinks-select" required>
+                    <option value="" disabled selected>Предпочтения по напиткам</option>
+                    <option value="Вино (красное/белое)">Вино (красное/белое)</option>
+                    <option value="Шампанское">Шампанское</option>
+                    <option value="Крепкий алкоголь">Крепкий алкоголь</option>
+                    <option value="Безалкогольные напитки">Только безалкогольные</option>
+                </select>
+
+                <button type="submit" class="submit-btn">Отправить ответ</button>
+            </form>
+        </div>
+        </div>
 
     <script src="script.js"></script>
 </body>
