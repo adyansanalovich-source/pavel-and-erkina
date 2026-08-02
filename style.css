@@ -202,13 +202,16 @@ body {
         margin-top: 65px;
     }
 
-    /* Уменьшаем шрифты */
+    /* Корректируем шрифты для смартфона */
+    #guest-name { 
+        font-size: 1.15rem; /* Аккуратный размер заголовка на экране телефона */
+    }
     .name { font-size: 2.2rem; }
     .ampersand { font-size: 1.8rem; }
     .content p, .details p { font-size: 0.95rem; line-height: 1.4; }
     .rsvp-text { font-size: 1.2rem; }
 
-    /* Переносим кнопку музыки в центр сверху, чтобы не ломала рамку */
+    /* Кнопка музыки */
     .music-control {
         top: 12px;
         right: 50%;
