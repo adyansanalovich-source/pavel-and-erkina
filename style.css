@@ -1,148 +1,220 @@
-    * {
+/* === 1. БАЗОВЫЕ НАСТРОЙКИ СТРАНИЦЫ === */
+body {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    background-color: #f7f7f7; /* Светлый фон за пределами открытки */
+    background-color: #faf8f5; /* Мягкий светлый фон позади открытки */
+    font-family: 'Cormorant Garamond', serif;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
     min-height: 100vh;
-    font-family: 'Cormorant Garamond', serif;
-    color: #5b5b5b;
+    overflow-x: hidden;
 }
 
+/* === 2. КНОПКА МУЗЫКИ === */
+.music-control {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+}
+
+.music-btn {
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 1px solid #d4af37;
+    color: #333;
+    padding: 10px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.music-btn:hover {
+    background-color: #d4af37;
+    color: #fff;
+}
+
+/* === 3. ГЛАВНАЯ КАРТОЧКА-ОТКРЫТКА === */
 .invitation-card {
     position: relative;
-    width: 90vw;
-    max-width: 800px;
-    aspect-ratio: 4 / 3; /* Пропорции экрана как на видео */
-    background-color: #ffffff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 90%;
+    max-width: 450px;
+    margin: 70px auto 30px auto; /* Отступ сверху (чтобы не мешала кнопка музыки) и снизу */
+    padding: 40px 20px;
+    box-sizing: border-box;
     text-align: center;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* Легкая тень для красоты */
+    background-color: #fff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
-/* Настройки цветочного фона */
+/* === 4. ФОН С ЦВЕТАМИ ВНУТРИ КАРТОЧКИ === */
 .floral-bg {
     position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    /* Укажи здесь название своей картинки с прозрачным фоном */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* ВНИМАНИЕ: Проверь, чтобы название картинки ниже совпадало с твоим файлом! */
     background: url('flowers.png') no-repeat center center/cover;
-    opacity: 0;
     z-index: 1;
-    /* Цветы начнут появляться ровно через 1.5 секунды, после золотой рамки */
-    animation: floralAppear 1.5s ease-out forwards 1.5s;
 }
 
-/* Белая подложка под текст (ШИРОКАЯ) */
-.invitation-card::after {
+/* Полупрозрачная белая пелена поверх цветов, чтобы текст читался */
+.floral-bg::after {
     content: '';
     position: absolute;
-    top: 5%; left: 5%; right: 5%; bottom: 5%;
-    background: rgba(255, 255, 255, 0.8);
-    /* Координаты углов теперь соответствуют широкому шестиугольнику */
-    clip-path: polygon(20% 0%, 80% 0%, 100% 50%, 80% 100%, 20% 100%, 0% 50%);
-    z-index: 2;
-    opacity: 0;
-    animation: fadeIn 2s ease forwards 1.5s;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.85); /* 0.85 - это прозрачность (от 0 до 1) */
 }
 
-/* Золотой шестиугольник (ШИРОКИЙ) */
+/* === 5. ЗОЛОТОЙ ШЕСТИУГОЛЬНИК === */
 .hexagon {
     position: absolute;
-    top: 5%; left: 5%; width: 90%; height: 90%; /* Растянули на 90% ширины */
-    fill: none;
-    stroke: #c5a059;
-    stroke-width: 0.5;
-    z-index: 3;
-    transform: scale(0);
-    /* Меняем popIn на spinIn */
-    animation: spinIn 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards 0.2s;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Чтобы рамка не мешала выделять текст */
+    z-index: 2;
 }
 
+.hexagon polygon {
+    fill: none;
+    stroke: #d4af37; /* Золотой цвет рамки */
+    stroke-width: 1.5;
+}
 
+/* === 6. ТЕКСТ ПРИГЛАШЕНИЯ === */
 .content {
     position: relative;
-    z-index: 4;
-    padding: 20px;
-    width: 60%;
+    z-index: 3; /* Текст располагается поверх фона и рамки */
+    color: #333;
 }
 
 .content p {
     font-size: 1.2rem;
-    margin-bottom: 5px;
-    /* Добавляем плотное белое свечение вокруг букв */
-    text-shadow: 0 0 10px rgba(255, 255, 255, 1), 0 0 20px rgba(255, 255, 255, 1);
-    /* Можно сделать сам текст чуть темнее для контраста */
-    color: #333333; 
+    margin: 10px 0;
+    line-height: 1.5;
 }
 
-/* Стили для имен */
+#guest-name {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #d4af37;
+    margin-bottom: 20px;
+}
+
+/* Имена молодоженов красивым шрифтом */
 .names {
-    margin: 20px 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    margin: 30px 0;
 }
 
 .name {
     font-family: 'Great Vibes', cursive;
-    font-size: 4rem;
-    color: #4a4a4a;
-    line-height: 0.8;
-    /* Белое облачко вокруг имен */
-    text-shadow: 0 0 15px rgba(255, 255, 255, 1);
+    font-size: 3rem;
+    color: #333;
 }
 
 .ampersand {
     font-family: 'Great Vibes', cursive;
-    font-size: 2.5rem;
-    color: #c5a059;
-    margin: 5px 0;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 1);
+    font-size: 2rem;
+    color: #d4af37;
+    margin: 0 10px;
 }
 
 .details {
-    margin-top: 15px;
-    font-size: 1.1rem;
+    margin-top: 30px;
 }
 
-/* --- АНИМАЦИИ (Та самая магия из видео) --- */
+/* === 7. БЛОК ПОДТВЕРЖДЕНИЯ (КНОПКА ВНИЗУ) === */
+.rsvp-section {
+    margin: 10px auto 60px auto; /* 60px снизу дают пространство для прокрутки */
+    text-align: center;
+    position: relative;
+    z-index: 10;
+    width: 90%;
+    max-width: 450px;
+}
 
-/* Начальное состояние текста — невидимый и чуть сдвинут вниз */
+.rsvp-text {
+    font-size: 1.4rem;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.submit-btn {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #333;
+    border: 2px solid #d4af37;
+    padding: 15px 35px;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.submit-btn:hover {
+    background-color: #d4af37;
+    color: #fff;
+    transform: translateY(-3px); /* Кнопка слегка приподнимается */
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+}
+
+/* === 8. АНИМАЦИЯ ПЛАВНОГО ПОЯВЛЕНИЯ === */
 .fade-text {
     opacity: 0;
-    transform: translateY(15px);
+    transform: translateY(20px);
+    animation: fadeInUp 1s forwards;
 }
 
-@keyframes popIn {
-    0% { transform: scale(0); opacity: 0; }
-    100% { transform: scale(1); opacity: 1; }
+.delay-1 { animation-delay: 0.5s; }
+.delay-2 { animation-delay: 1s; }
+.delay-3 { animation-delay: 1.5s; }
+.delay-4 { animation-delay: 2s; }
+.delay-5 { animation-delay: 2.5s; } /* Кнопка появляется последней */
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-@keyframes fadeIn {
-    to { opacity: 1; }
-}
+/* === 9. АДАПТАЦИЯ ПОД МОБИЛЬНЫЕ ТЕЛЕФОНЫ === */
+@media (max-width: 768px) {
+    .invitation-card {
+        width: 92%;
+        padding: 30px 15px;
+        margin-top: 65px;
+    }
 
-@keyframes textAppear {
-    to { opacity: 1; transform: translateY(0); }
+    /* Уменьшаем шрифты */
+    .name { font-size: 2.2rem; }
+    .ampersand { font-size: 1.8rem; }
+    .content p, .details p { font-size: 0.95rem; line-height: 1.4; }
+    .rsvp-text { font-size: 1.2rem; }
+
+    /* Переносим кнопку музыки в центр сверху, чтобы не ломала рамку */
+    .music-control {
+        top: 12px;
+        right: 50%;
+        transform: translateX(50%);
+        width: max-content;
+    }
+
+    .music-btn {
+        font-size: 0.85rem;
+        padding: 8px 16px;
+    }
 }
-@keyframes spinIn {
-    0% { transform: scale(0) rotate(-90deg); opacity: 0; }
-    100% { transform: scale(1) rotate(0deg); opacity: 1; }
-}
-@keyframes floralAppear {
-    0% { opacity: 0; transform: scale(0.95); } /* Слегка уменьшены и прозрачны */
-    100% { opacity: 1; transform: scale(1); }  /* Встают в реальный размер */
-}
-/* Очередь появления текста (сдвинули тайминги) */
-.delay-1 { animation: textAppear 1s ease forwards 3.0s; } /* Текст пойдет через 3 сек */
-.delay-2 { animation: textAppear 1s ease forwards 3.5s; }
-.delay-3 { animation: textAppear 1s ease forwards 4.5s; } 
-.delay-4 { animation: textAppear 1s ease forwards 5.5s; }
