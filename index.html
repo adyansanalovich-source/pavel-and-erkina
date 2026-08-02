@@ -13,7 +13,7 @@
         <audio id="bg-music" loop>
             <source src="music.mp3" type="audio/mpeg">
         </audio>
-        <button id="music-btn" class="music-btn">🎵 Включить атмосферу</button>
+        <button id="music-btn" class="music-btn">🎵 </button>
     </div>
 
     <div class="invitation-card">
@@ -42,27 +42,11 @@
                 <p>ресторан "Иткл"</p>
             </div>
         </div>
-
-        <div class="rsvp-section">
-            <h3>Подтверждение присутствия</h3>
-            <form id="rsvp-form">
-                <input type="text" id="guest-name-input" name="Имя" placeholder="Ваше имя и фамилия" required>
-
-                <div class="radio-group">
-                    <label>
-                        <input type="radio" name="Присутствие" value="Приду" required>
-                        С удовольствием приду!
-                    </label>
-                    <label>
-                        <input type="radio" name="Присутствие" value="Не приду">
-                        К сожалению, не смогу
-                    </label>
-                </div>
-
-                <button type="submit" class="submit-btn">Отправить ответ</button>
-            </form>
-        </div>
-        </div>
+    </div> 
+    <div class="rsvp-section fade-text delay-5">
+        <p class="rsvp-text">Будем рады разделить этот день с Вами!</p>
+        <button id="confirm-btn" class="submit-btn">Я с удовольствием приду!</button>
+    </div>
 
     <script src="script.js"></script>
 </body>
