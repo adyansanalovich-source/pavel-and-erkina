@@ -98,17 +98,20 @@ body {
     color: #333;
 }
 
-.content p {
-    font-size: 1.2rem;
-    margin: 10px 0;
-    line-height: 1.5;
+.content {
+    position: relative;
+    z-index: 3;
+    color: #333;
+    padding: 15px 20px 0 20px; /* Добавили отступы по бокам и сверху, чтобы опустить текст в более широкую часть рамки */
 }
 
 #guest-name {
-    font-size: 1.6rem;
+    font-size: 1.3rem; /* Уменьшили шрифт (было 1.6rem) */
     font-weight: 600;
     color: #d4af37;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+    padding: 0 10px;
+    word-wrap: break-word; /* Чтобы длинные имена перенослись на новую строку, а не вылизали за края */
 }
 
 /* Имена молодоженов красивым шрифтом */
