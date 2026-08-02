@@ -9,6 +9,13 @@
 </head>
 <body>
 
+    <div class="music-control">
+        <audio id="bg-music" loop>
+            <source src="music.mp3" type="audio/mpeg">
+        </audio>
+        <button id="music-btn" class="music-btn">🎵 Включить атмосферу</button>
+    </div>
+
     <div class="invitation-card">
         <div class="floral-bg"></div>
 
@@ -51,14 +58,6 @@
                         К сожалению, не смогу
                     </label>
                 </div>
-
-                <select name="Напитки" id="drinks-select" required>
-                    <option value="" disabled selected>Предпочтения по напиткам</option>
-                    <option value="Вино (красное/белое)">Вино (красное/белое)</option>
-                    <option value="Шампанское">Шампанское</option>
-                    <option value="Крепкий алкоголь">Крепкий алкоголь</option>
-                    <option value="Безалкогольные напитки">Только безалкогольные</option>
-                </select>
 
                 <button type="submit" class="submit-btn">Отправить ответ</button>
             </form>
