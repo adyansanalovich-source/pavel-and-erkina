@@ -15,10 +15,10 @@ if (musicBtn && bgMusic) {
     musicBtn.addEventListener('click', function() {
         if (bgMusic.paused) {
             bgMusic.play();
-            musicBtn.innerHTML = '⏸ Выключить музыку';
+            musicBtn.innerHTML = '⏸ ';
         } else {
             bgMusic.pause();
-            musicBtn.innerHTML = '🎵 Включить атмосферу';
+            musicBtn.innerHTML = '🎵 ';
         }
     });
 }
