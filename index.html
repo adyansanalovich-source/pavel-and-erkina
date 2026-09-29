@@ -202,6 +202,8 @@ h1, h2, h3, p { margin: 0; }
   .rsvp-card { padding: 75px 25px 60px; border-radius: 230px 230px 180px 180px; }
   .cover h1 { font-size: clamp(2.8rem, 11vw, 4rem); }
 }
+
+.music-toggle{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom));z-index:90;border:1px solid #d3b784;border-radius:30px;background:#4a070c;color:#fffdf9;padding:12px 18px;min-height:44px;font:500 14px Manrope,Arial,sans-serif;cursor:pointer;box-shadow:0 3px 18px #0003}.music-toggle[hidden]{display:none}
 </style>
 </head>
 <body class="closed">
@@ -229,7 +231,7 @@ h1, h2, h3, p { margin: 0; }
 
   <section class="section" id="welcome">
     <div class="intro reveal">
-      <h2 class="serif" id="guest-greeting">Дорогие гости!</h2>
+      <h2 class="serif" id="guest-greeting">Дорогие друзья и родные!</h2>
       <p>Приглашаем вас на наше свадебное торжество. Будем счастливы разделить этот день с вами!</p>
       <div class="date-block">
         <span class="day serif">28</span>
@@ -306,7 +308,20 @@ h1, h2, h3, p { margin: 0; }
   </footer>
 </main>
 
+
+<audio id="wedding-music" src="./AThousandYears.mp3" preload="auto" loop></audio>
+<button id="music-toggle" class="music-toggle" type="button" aria-label="Включить музыку" aria-pressed="false" hidden>♫ Включить музыку</button>
 <script>
+const weddingMusic=document.getElementById('wedding-music');
+const musicToggle=document.getElementById('music-toggle');
+weddingMusic.volume=0.5;
+function syncMusicButton(){const playing=!weddingMusic.paused;musicToggle.textContent=playing?'♫ Выключить музыку':'♫ Включить музыку';musicToggle.setAttribute('aria-pressed',String(playing));musicToggle.setAttribute('aria-label',playing?'Выключить музыку':'Включить музыку');}
+function startWeddingMusic(){musicToggle.hidden=false;try{const playing=weddingMusic.play();if(playing)playing.catch(()=>{syncMusicButton();});}catch(error){syncMusicButton();}}
+weddingMusic.addEventListener('play',syncMusicButton);
+weddingMusic.addEventListener('pause',syncMusicButton);
+weddingMusic.addEventListener('error',()=>{musicToggle.textContent='♫ Повторить запуск';musicToggle.setAttribute('aria-label','Повторить запуск музыки');musicToggle.setAttribute('aria-pressed','false');});
+musicToggle.addEventListener('click',()=>{if(weddingMusic.paused){if(weddingMusic.error)weddingMusic.load();startWeddingMusic();}else weddingMusic.pause();});
+
 // 1. Именные параметры без риска URIError
 const params = new URLSearchParams(location.search);
 const rawGreeting = params.get('g') || params.get('to');
@@ -346,6 +361,8 @@ const main = document.getElementById('invitation');
 const button = document.getElementById('open');
 
 button.addEventListener('click', () => {
+startWeddingMusic();
+
   main.removeAttribute('inert');
   document.body.classList.remove('closed');
   document.body.classList.add('opened');
