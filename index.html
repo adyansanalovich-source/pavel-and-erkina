@@ -1,58 +1,405 @@
 <!doctype html>
 <html lang="ru">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Pavel & Erkina — свадебное приглашение</title>
 <meta name="description" content="Приглашаем вас на свадьбу Павла и Эркины. 28 ноября, ресторан «Иткл», Элиста.">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%234a070c'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-family='serif' font-size='32' fill='%23fff8ef'%3EPE%3C/text%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--wine:#4a070c;--paper:#fffdf9;--ink:#391f23;--gold:#d3b784;font-family:Manrope,Arial,sans-serif;color:var(--ink);background:var(--wine);font-synthesis:none}*{box-sizing:border-box}body{margin:0}body.closed{overflow:hidden}button,a{-webkit-tap-highlight-color:transparent}button{font:inherit}button:focus-visible,a:focus-visible{outline:3px solid var(--gold);outline-offset:7px}h1,h2,h3,p{margin:0}.serif{font-family:'Cormorant Garamond',Georgia,serif;font-weight:400}.script{font-family:'Great Vibes',cursive;font-weight:400;line-height:1.2}.amp{color:var(--gold)}.eyebrow{font-size:.75rem;letter-spacing:.23em;text-transform:uppercase;line-height:1.8}.cover{position:fixed;inset:0;z-index:10;background:var(--wine);color:var(--paper);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:26px 20px;transition:opacity .9s ease,visibility .9s}.cover.leaving{opacity:0;visibility:hidden;pointer-events:none}.cover .eyebrow{margin-bottom:16px}.cover h1{font-size:clamp(3rem,6vw,4.6rem);margin-bottom:20px}.photo-button{width:min(270px,60vw);border:1px solid #fff9;background:none;padding:5px;cursor:pointer;transition:transform .8s}.photo-button:hover{transform:translateY(-4px)}.photo-button img{display:block;width:100%;height:clamp(230px,36svh,355px);object-fit:cover;object-position:center}.cover.leaving .photo-button{transform:scale(1.15)}.cover .hint{max-width:260px;font-size:.88rem;line-height:1.6;margin-top:18px;color:#f0dedb}.cover .cover-date{font-size:.75rem;letter-spacing:.24em;margin-top:20px}.site{background:var(--paper)}.hero{min-height:100svh;position:relative;color:white;display:flex;justify-content:center;align-items:flex-end;text-align:center;padding:90px 24px 70px;overflow:hidden}.hero-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 58%;filter:brightness(.73);transform:scale(1.04);transition:transform 1.8s ease}.opened .hero-image{transform:scale(1)}.hero:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,#18060920 15%,#21040c12 35%,#1e040bcc 100%)}.hero-content{position:relative;z-index:1}.hero .eyebrow{margin-bottom:16px}.hero h2{font-size:clamp(3.7rem,10vw,7.5rem);text-shadow:0 2px 24px #15060d70}.hero .date{font-size:1rem;letter-spacing:.2em;margin-top:16px}.scroll-link{display:inline-flex;flex-direction:column;align-items:center;gap:12px;margin-top:38px;color:#fff;text-decoration:none;font-size:.72rem;letter-spacing:.15em;text-transform:uppercase}.scroll-link:before{content:'';height:40px;width:1px;background:#ffffffa0}.section{padding:95px 24px;text-align:center}.inner{max-width:850px;margin:auto}.intro{max-width:640px;margin:auto}.intro h2{font-size:clamp(2.5rem,6vw,3.7rem);line-height:1.15;overflow-wrap:anywhere}.intro p{font-size:1.05rem;line-height:1.9;margin:25px auto 0;max-width:460px}.date-block{display:flex;flex-direction:column;align-items:center;margin-top:46px;color:var(--wine)}.date-block .day{font-size:6rem;line-height:.95}.date-block .month{font-size:1rem;letter-spacing:.24em;text-transform:uppercase;border-top:1px solid #4a070c40;padding-top:14px;margin-top:14px}.section-title{font-size:clamp(2.7rem,6vw,4.1rem);line-height:1.05;text-transform:uppercase;letter-spacing:.04em;margin-bottom:35px}.location{background:var(--wine);color:var(--paper)}.location-layout{display:grid;grid-template-columns:1fr 1fr;gap:60px;text-align:left;align-items:center}.location .section-title{margin-bottom:0}.location h3{font-size:2.5rem;line-height:1.1;margin-bottom:20px}.location address{font-style:normal;font-size:1rem;line-height:1.8;color:#eedfdb}.outline-link{display:inline-block;margin-top:28px;border:1px solid #ffffff80;color:white;text-decoration:none;font-size:.8rem;letter-spacing:.1em;padding:16px 23px;text-transform:uppercase}.outline-link:hover{background:#ffffff12}.program{max-width:580px;margin:45px auto 0;position:relative;text-align:left;padding-left:90px}.program svg{position:absolute;top:0;left:0;width:65px;height:240px;overflow:visible}.program path{fill:none;stroke:var(--wine);stroke-width:1.5}.program circle{fill:var(--wine)}.event{min-height:150px;padding-bottom:30px}.event time{font-size:2.9rem;line-height:1}.event h3{font-size:1.1rem;font-weight:500;line-height:1.6;margin-top:14px}.farewell{background:var(--wine);color:var(--paper);padding:70px 24px}.farewell p{font-size:clamp(2.2rem,5vw,3.2rem)}.farewell .script{font-size:clamp(3.1rem,8vw,5rem);margin-top:24px}.farewell .eyebrow{font:400 .75rem/1.8 Manrope,Arial,sans-serif;margin-top:24px}.reveal{opacity:0;transform:translateY(24px);transition:opacity .85s ease,transform .85s ease}.reveal.visible{opacity:1;transform:none}@media(min-width:900px){.hero-image{object-position:center 60%}.hero{min-height:95svh}.hero-image{filter:brightness(.65)}}@media(max-width:600px){.section{padding:70px 24px}.location-layout{grid-template-columns:1fr;gap:35px;text-align:center}.hero{padding-bottom:50px}.hero h2{font-size:clamp(3.5rem,13vw,5rem)}.program{padding-left:74px}.program svg{width:54px}.cover h1{font-size:clamp(2.8rem,11vw,4rem)}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{transition:none!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}}
+:root {
+  --wine: #4a070c;
+  --paper: #fffdf9;
+  --ink: #391f23;
+  --gold: #d3b784;
+  font-family: Manrope, Arial, sans-serif;
+  color: var(--ink);
+  background: var(--wine);
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--wine); }
+body.closed { overflow: hidden; }
 
-.photo-button img{height:auto;max-height:38svh;object-fit:contain}
-.hero{background:#21070c}
-.hero-image{object-position:center center;filter:none}
-.hero:after{background:linear-gradient(180deg,transparent 35%,#18030a15 52%,#18030add 100%)}
-.photo-story{max-width:1000px;margin:60px auto 0;display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
-.photo-story figure{margin:0;overflow:hidden}.photo-story figure:nth-child(2){margin-top:65px}
-.photo-story img{display:block;width:100%;height:auto}
-@media(min-width:900px){.hero-image{object-fit:contain;object-position:center center}.hero{min-height:100svh}.hero-content{padding:0 25px}.hero:after{background:linear-gradient(180deg,transparent 45%,#18030a20 60%,#18030aeb 100%)}}
-@media(max-width:600px){.photo-story{grid-template-columns:1fr;gap:24px;margin-top:42px}.photo-story figure:nth-child(2){margin-top:0}.hero-image{object-position:55% center}.hero{padding-bottom:30px}.hero h2{font-size:clamp(3.1rem,12vw,4.6rem)}.scroll-link{margin-top:22px}.scroll-link:before{height:25px}}
-.schedule{max-width:660px;margin:45px auto 0;text-align:left}.schedule article{position:relative;padding-left:90px;margin-bottom:38px}.schedule article:before{content:'';position:absolute;left:0;top:23px;width:65px;height:1px;background:var(--wine)}.schedule h3{font-size:clamp(1.9rem,4vw,2.65rem);line-height:1.1}.schedule p{font-size:1rem;line-height:1.8;margin-top:14px;color:#66565a}.rsvp-section{background:var(--wine);padding:50px 20px}.rsvp-card{max-width:540px;background:var(--paper);margin:auto;border-radius:270px 270px 240px 240px;padding:95px 44px 65px;text-align:center}.rsvp-card>p{line-height:1.9;margin-bottom:32px}.rsvp-card .section-title{margin-bottom:20px}.rsvp-card form{text-align:left}.rsvp-card label,.rsvp-card legend{font-size:.9rem;line-height:1.7}.rsvp-card input:not([type=radio]),.rsvp-card textarea{display:block;width:100%;border:0;border-bottom:1px solid #695155;background:transparent;border-radius:0;padding:13px 0;font:inherit;color:var(--ink);resize:vertical}.rsvp-card fieldset{padding:0;border:0;margin:27px 0}.rsvp-card .radio{display:flex;align-items:center;gap:10px;margin-top:12px}.radio input{accent-color:var(--wine);width:18px;height:18px}.rsvp-submit{display:block;margin:28px auto 0;border:1px solid var(--wine);border-radius:40px;padding:15px 28px;background:transparent;color:var(--wine);cursor:pointer;font:inherit}.rsvp-submit:disabled{opacity:.6;cursor:wait}.rsvp-status{font-size:.94rem;text-align:center;line-height:1.6;margin-top:20px}.honeypot{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}@media(max-width:600px){.schedule article{padding-left:50px}.schedule article:before{width:32px;top:17px}.rsvp-card{padding:75px 25px 60px;border-radius:230px 230px 180px 180px}}
-.date-block .day,.date,.cover-date,.schedule h3{font-variant-numeric:lining-nums tabular-nums;font-feature-settings:"lnum" 1,"tnum" 1} .date-block .day{font-family:Georgia,"Times New Roman",serif}
+button, a { -webkit-tap-highlight-color: transparent; font: inherit; }
+button:focus-visible, a:focus-visible { outline: 3px solid var(--gold); outline-offset: 7px; }
+h1, h2, h3, p { margin: 0; }
+.serif { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 400; }
+.script { font-family: 'Great Vibes', cursive; font-weight: 400; line-height: 1.2; }
+.amp { color: var(--gold); }
+.eyebrow { font-size: .75rem; letter-spacing: .23em; text-transform: uppercase; line-height: 1.8; }
+
+/* === ОБЛОЖКА И АНИМАЦИЯ ОТКРЫТИЯ === */
+.cover {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: var(--wine);
+  color: var(--paper);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 26px 20px;
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1), transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.cover.leaving {
+  opacity: 0;
+  transform: scale(1.06);
+  pointer-events: none;
+}
+.cover .eyebrow { margin-bottom: 16px; }
+.cover h1 { font-size: clamp(3rem, 6vw, 4.6rem); margin-bottom: 20px; }
+
+.photo-button {
+  width: min(270px, 60vw);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  background: none;
+  padding: 6px;
+  cursor: pointer;
+  transition: transform 0.6s ease;
+}
+.photo-button:hover { transform: translateY(-4px); }
+.photo-button img {
+  display: block;
+  width: 100%;
+  height: clamp(230px, 38svh, 360px);
+  object-fit: cover;
+  object-position: center;
+}
+.cover.leaving .photo-button { transform: scale(1.12); }
+
+.cover .hint { max-width: 260px; font-size: .88rem; line-height: 1.6; margin-top: 18px; color: #f0dedb; }
+.cover .cover-date { font-size: .75rem; letter-spacing: .24em; margin-top: 20px; }
+
+/* === ОСНОВНОЙ САЙТ === */
+.site { background: var(--paper); }
+.hero {
+  min-height: 100svh;
+  position: relative;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  text-align: center;
+  padding: 90px 24px 70px;
+  overflow: hidden;
+  background: #21070c;
+}
+.hero-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(0.7);
+  transform: scale(1.08);
+  transition: transform 2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.opened .hero-image { transform: scale(1); }
+.hero:after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 35%, #18030a15 52%, #18030add 100%);
+}
+.hero-content { position: relative; z-index: 1; }
+.hero .eyebrow { margin-bottom: 16px; }
+.hero h2 { font-size: clamp(3.7rem, 10vw, 7.5rem); text-shadow: 0 2px 24px #15060d70; }
+.hero .date { font-size: 1rem; letter-spacing: .2em; margin-top: 16px; }
+.scroll-link {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-top: 38px;
+  color: #fff;
+  text-decoration: none;
+  font-size: .72rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+}
+.scroll-link:before { content: ''; height: 40px; width: 1px; background: #ffffffa0; }
+
+.section { padding: 95px 24px; text-align: center; }
+.inner { max-width: 850px; margin: auto; }
+.intro { max-width: 640px; margin: auto; }
+.intro h2 { font-size: clamp(2.5rem, 6vw, 3.7rem); line-height: 1.15; }
+.intro p { font-size: 1.05rem; line-height: 1.9; margin: 25px auto 0; max-width: 460px; }
+.date-block { display: flex; flex-direction: column; align-items: center; margin-top: 46px; color: var(--wine); }
+.date-block .day { font-size: 6rem; line-height: .95; font-family: Georgia, serif; }
+.date-block .month { font-size: 1rem; letter-spacing: .24em; text-transform: uppercase; border-top: 1px solid #4a070c40; padding-top: 14px; margin-top: 14px; }
+
+.photo-story { max-width: 1000px; margin: 60px auto 0; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+.photo-story figure { margin: 0; overflow: hidden; }
+.photo-story figure:nth-child(2) { margin-top: 65px; }
+.photo-story img { display: block; width: 100%; height: auto; }
+
+.section-title { font-size: clamp(2.7rem, 6vw, 4.1rem); line-height: 1.05; text-transform: uppercase; letter-spacing: .04em; margin-bottom: 35px; }
+.location { background: var(--wine); color: var(--paper); }
+.location-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; text-align: left; align-items: center; }
+.location .section-title { margin-bottom: 0; }
+.location h3 { font-size: 2.5rem; line-height: 1.1; margin-bottom: 20px; }
+.location address { font-style: normal; font-size: 1rem; line-height: 1.8; color: #eedfdb; }
+.outline-link { display: inline-block; margin-top: 28px; border: 1px solid #ffffff80; color: white; text-decoration: none; font-size: .8rem; letter-spacing: .1em; padding: 16px 23px; text-transform: uppercase; }
+.outline-link:hover { background: #ffffff12; }
+
+/* === РАСПИСАНИЕ === */
+.schedule { max-width: 660px; margin: 45px auto 0; text-align: left; }
+.schedule article { position: relative; padding-left: 90px; margin-bottom: 38px; }
+.schedule article:before { content: ''; position: absolute; left: 0; top: 23px; width: 65px; height: 1px; background: var(--wine); }
+.schedule h3 { font-size: clamp(1.9rem, 4vw, 2.65rem); line-height: 1.1; }
+.schedule p { font-size: 1rem; line-height: 1.8; margin-top: 14px; color: #66565a; }
+
+/* === АНКЕТА RSVP === */
+.rsvp-section { background: var(--wine); padding: 50px 20px; }
+.rsvp-card { max-width: 540px; background: var(--paper); margin: auto; border-radius: 270px 270px 240px 240px; padding: 95px 44px 65px; text-align: center; }
+.rsvp-card > p { line-height: 1.9; margin-bottom: 32px; }
+.rsvp-card .section-title { margin-bottom: 20px; }
+.rsvp-card form { text-align: left; }
+.rsvp-card label, .rsvp-card legend { font-size: .9rem; line-height: 1.7; }
+.rsvp-card input:not([type=radio]), .rsvp-card textarea { display: block; width: 100%; border: 0; border-bottom: 1px solid #695155; background: transparent; border-radius: 0; padding: 13px 0; font: inherit; color: var(--ink); resize: vertical; }
+.rsvp-card fieldset { padding: 0; border: 0; margin: 27px 0; }
+.rsvp-card .radio { display: flex; align-items: center; gap: 10px; margin-top: 12px; }
+.radio input { accent-color: var(--wine); width: 18px; height: 18px; }
+.rsvp-submit { display: block; margin: 28px auto 0; border: 1px solid var(--wine); border-radius: 40px; padding: 15px 28px; background: transparent; color: var(--wine); cursor: pointer; font: inherit; transition: background 0.3s, color 0.3s; }
+.rsvp-submit:hover { background: var(--wine); color: #fff; }
+.rsvp-submit:disabled { opacity: .6; cursor: wait; }
+.rsvp-status { font-size: .94rem; text-align: center; line-height: 1.6; margin-top: 20px; }
+.honeypot { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+
+.farewell { background: var(--wine); color: var(--paper); padding: 70px 24px; }
+.farewell p { font-size: clamp(2.2rem, 5vw, 3.2rem); }
+.farewell .script { font-size: clamp(3.1rem, 8vw, 5rem); margin-top: 24px; }
+.farewell .eyebrow { font: 400 .75rem/1.8 Manrope, Arial, sans-serif; margin-top: 24px; }
+
+/* === ПЛАВНОЕ ПОЯВЛЕНИЕ ПРИ СКРОЛЛЕ === */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media(max-width: 600px) {
+  .section { padding: 70px 24px; }
+  .location-layout { grid-template-columns: 1fr; gap: 35px; text-align: center; }
+  .hero { padding-bottom: 50px; }
+  .hero h2 { font-size: clamp(3.2rem, 12vw, 4.6rem); }
+  .photo-story { grid-template-columns: 1fr; gap: 24px; margin-top: 42px; }
+  .photo-story figure:nth-child(2) { margin-top: 0; }
+  .schedule article { padding-left: 50px; }
+  .schedule article:before { width: 32px; top: 17px; }
+  .rsvp-card { padding: 75px 25px 60px; border-radius: 230px 230px 180px 180px; }
+  .cover h1 { font-size: clamp(2.8rem, 11vw, 4rem); }
+}
 </style>
 </head>
 <body class="closed">
-<section class="cover" id="cover" aria-label="Открыть приглашение"><p class="eyebrow">Приглашение на свадьбу</p><h1 class="script">Pavel <span class="amp">&amp;</span> Erkina</h1><button class="photo-button" id="open" aria-label="Открыть приглашение Павла и Эркины" aria-controls="invitation" aria-expanded="false"><img src="./couple-cover.webp" alt="Павел и Эркина с букетом на лестнице" fetchpriority="high"></button><p class="hint">Нажмите на фото,<br>чтобы открыть приглашение</p><p class="cover-date">28 НОЯБРЯ</p></section>
-<main class="site" id="invitation" inert>
-<section class="hero"><img class="hero-image" src="./couple-cover.webp" alt="Павел и Эркина в день свадебной фотосессии"><div class="hero-content"><p class="eyebrow">День нашей свадьбы</p><h2 class="script" id="hero-names" tabindex="-1">Pavel <span class="amp">&amp;</span> Erkina</h2><p class="date">28 НОЯБРЯ</p><a class="scroll-link" href="#welcome">Листайте ниже</a></div></section>
-<section class="section" id="welcome"><div class="intro reveal"><h2 class="serif" id="guest-greeting">Дорогие гости!</h2><p>Приглашаем вас на наше свадебное торжество. Будем счастливы разделить этот день с вами!</p><div class="date-block"><span class="day serif">28</span><span class="month">Ноября</span></div></div><div class="photo-story" aria-label="Фотографии Павла и Эркины"><figure class="reveal"><img src="./couple-closeup.webp" alt="Павел и Эркина у окна" loading="lazy" decoding="async"></figure><figure class="reveal"><img src="./couple-portrait.webp" alt="Совместный портрет Павла и Эркины" loading="lazy" decoding="async"></figure></div></section>
-<section class="section location"><div class="inner location-layout reveal"><h2 class="section-title serif">Место<br>встречи</h2><div><h3 class="serif">Ресторан «Иткл»</h3><address>Элиста, ул. В. И. Ленина, 367</address><a class="outline-link" href="https://yandex.ru/maps/?text=%D0%AD%D0%BB%D0%B8%D1%81%D1%82%D0%B0%2C%20%D1%83%D0%BB.%20%D0%92.%20%D0%98.%20%D0%9B%D0%B5%D0%BD%D0%B8%D0%BD%D0%B0%2C%20367" target="_blank" rel="noopener">Открыть на карте</a></div></div></section>
-<section class="section"><div class="inner reveal"><h2 class="section-title serif">Программа<br>дня</h2><div class="schedule"><article><h3 class="serif">16:30 Сбор гостей<br>и фуршет</h3><p>Встречаемся и настраиваемся на праздничный вечер.</p></article><article><h3 class="serif">17:00 Начало банкета</h3><p>Разделим радость этого дня вместе.</p></article><article><h3 class="serif">23:00 Финал вечера</h3></article></div></div></section>
-<section class="rsvp-section" id="rsvp"><div class="rsvp-card"><h2 class="section-title serif">Анкета</h2><p>Пожалуйста, сообщите, сможете ли вы разделить этот день с нами.</p><form id="rsvp-form"><label for="rsvp-name">Ваше имя и фамилия</label><input id="rsvp-name" name="name" autocomplete="name" placeholder="Иван Иванов" maxlength="120" required><fieldset><legend>Планируете ли вы присутствовать?</legend><label class="radio"><input type="radio" name="attendance" value="yes" required> Да, с удовольствием!</label><label class="radio"><input type="radio" name="attendance" value="no" required> К сожалению, не смогу</label></fieldset><div id="companions-field"><label for="rsvp-companions">С кем вы планируете прийти?</label><textarea id="rsvp-companions" name="companions" maxlength="600" rows="2" placeholder="Укажите имена или напишите «Один / одна»"></textarea></div><div class="honeypot" aria-hidden="true"><label>Сайт<input name="website" tabindex="-1" autocomplete="off"></label></div><button class="rsvp-submit" type="submit">Отправить ответ</button><p class="rsvp-status" id="rsvp-status" role="status" aria-live="polite"></p></form></div></section><footer class="section farewell"><div class="reveal"><p class="serif">До скорой встречи!</p><p class="script">Pavel <span class="amp">&amp;</span> Erkina</p><p class="eyebrow">28 ноября · Элиста</p></div></footer>
-</main>
-<script>
-const greeting=new URLSearchParams(location.search).get('g');if(greeting&&greeting.length<=100)document.getElementById('guest-greeting').textContent=greeting;
-const cover=document.getElementById('cover'),main=document.getElementById('invitation'),button=document.getElementById('open');
-button.addEventListener('click',()=>{main.inert=false;document.body.classList.remove('closed');document.body.classList.add('opened');button.setAttribute('aria-expanded','true');cover.classList.add('leaving');document.getElementById('hero-names').focus({preventScroll:true});setTimeout(()=>{cover.hidden=true;},950);},{once:true});
-const observer=new IntersectionObserver(entries=>{for(const entry of entries)if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}},{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 
-const form=document.getElementById('rsvp-form'),status=document.getElementById('rsvp-status'),submit=form.querySelector('button[type=submit]');let responseId=crypto.randomUUID();
-form.addEventListener('change',()=>{const no=form.elements.attendance.value==='no';document.getElementById('companions-field').hidden=no;form.elements.companions.disabled=no;});
-form.addEventListener('submit',async event=>{event.preventDefault();if(!form.reportValidity())return;submit.disabled=true;status.textContent='Отправляем ответ…';const data=Object.fromEntries(new FormData(form));data.id=responseId;data.invitation=greeting&&greeting.length<=100?greeting:'';
-try {
-  await fetch('https://script.google.com/macros/s/AKfycbxxVvnoBnxQu3MAalO434EvN5kmyPxRf2_--VZlN8Shfa4UKV8Z-hcF0vGWJnGAlaURYQ/exec', {
-    method: 'POST',
-    mode: 'no-cors',
-    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-    body: JSON.stringify(data)
+<section class="cover" id="cover" aria-label="Открыть приглашение">
+  <p class="eyebrow">Приглашение на свадьбу</p>
+  <h1 class="script">Pavel <span class="amp">&amp;</span> Erkina</h1>
+  <button class="photo-button" id="open" aria-label="Открыть приглашение Павла и Эркины">
+    <img src="./couple-cover.webp" alt="Павел и Эркина" fetchpriority="high">
+  </button>
+  <p class="hint">Нажмите на фото,<br>чтобы открыть приглашение</p>
+  <p class="cover-date">28 НОЯБРЯ</p>
+</section>
+
+<main class="site" id="invitation" inert>
+  <section class="hero">
+    <img class="hero-image" src="./couple-cover.webp" alt="Павел и Эркина в день свадьбы">
+    <div class="hero-content">
+      <p class="eyebrow">День нашей свадьбы</p>
+      <h2 class="script" id="hero-names">Pavel <span class="amp">&amp;</span> Erkina</h2>
+      <p class="date">28 НОЯБРЯ</p>
+      <a class="scroll-link" href="#welcome">Листайте ниже</a>
+    </div>
+  </section>
+
+  <section class="section" id="welcome">
+    <div class="intro reveal">
+      <h2 class="serif" id="guest-greeting">Дорогие гости!</h2>
+      <p>Приглашаем вас на наше свадебное торжество. Будем счастливы разделить этот день с вами!</p>
+      <div class="date-block">
+        <span class="day serif">28</span>
+        <span class="month">Ноября</span>
+      </div>
+    </div>
+    <div class="photo-story" aria-label="Фотографии Павла и Эркины">
+      <figure class="reveal"><img src="./couple-closeup.webp" alt="Павел и Эркина у окна" loading="lazy"></figure>
+      <figure class="reveal"><img src="./couple-portrait.webp" alt="Совместный портрет" loading="lazy"></figure>
+    </div>
+  </section>
+
+  <section class="section location">
+    <div class="inner location-layout reveal">
+      <h2 class="section-title serif">Место<br>встречи</h2>
+      <div>
+        <h3 class="serif">Ресторан «Иткл»</h3>
+        <address>Элиста, ул. В. И. Ленина, 367</address>
+        <a class="outline-link" href="https://yandex.ru/maps/?text=%D0%AD%D0%BB%D0%B8%D1%81%D1%82%D0%B0%2C%20%D1%83%D0%BB.%20%D0%92.%20%D0%98.%20%D0%9B%D0%B5%D0%BD%D0%B8%D0%BD%D0%B0%2C%20367" target="_blank" rel="noopener">Открыть на карте</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="inner reveal">
+      <h2 class="section-title serif">Программа<br>дня</h2>
+      <div class="schedule">
+        <article>
+          <h3 class="serif">16:30 — Сбор гостей и фуршет</h3>
+          <p>Встречаемся и настраиваемся на праздничный вечер.</p>
+        </article>
+        <article>
+          <h3 class="serif">17:00 — Начало банкета</h3>
+          <p>Разделим радость этого дня вместе.</p>
+        </article>
+        <article>
+          <h3 class="serif">23:00 — Финал вечера</h3>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="rsvp-section" id="rsvp">
+    <div class="rsvp-card">
+      <h2 class="section-title serif">Анкета</h2>
+      <p>Пожалуйста, сообщите, сможете ли вы разделить этот день с нами.</p>
+      <form id="rsvp-form">
+        <label for="rsvp-name">Ваше имя и фамилия</label>
+        <input id="rsvp-name" name="name" autocomplete="name" placeholder="Иван Иванов" maxlength="120" required>
+        <fieldset>
+          <legend>Планируете ли вы присутствовать?</legend>
+          <label class="radio"><input type="radio" name="attendance" value="yes" required> Да, с удовольствием!</label>
+          <label class="radio"><input type="radio" name="attendance" value="no" required> К сожалению, не смогу</label>
+        </fieldset>
+        <div id="companions-field">
+          <label for="rsvp-companions">С кем вы планируете прийти?</label>
+          <textarea id="rsvp-companions" name="companions" maxlength="600" rows="2" placeholder="Укажите имена или напишите «Один / одна»"></textarea>
+        </div>
+        <div class="honeypot" aria-hidden="true">
+          <label>Сайт<input name="website" tabindex="-1" autocomplete="off"></label>
+        </div>
+        <button class="rsvp-submit" type="submit">Отправить ответ</button>
+        <p class="rsvp-status" id="rsvp-status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+  <footer class="section farewell">
+    <div class="reveal">
+      <p class="serif">До скорой встречи!</p>
+      <p class="script">Pavel <span class="amp">&amp;</span> Erkina</p>
+      <p class="eyebrow">28 ноября · Элиста</p>
+    </div>
+  </footer>
+</main>
+
+<script>
+// 1. Именные параметры без риска URIError
+const params = new URLSearchParams(location.search);
+const rawGreeting = params.get('g') || params.get('to');
+const greeting = rawGreeting && rawGreeting.length <= 100 ? rawGreeting.replace(/_/g, ' ') : '';
+
+if (greeting) {
+  const guestGreetingElem = document.getElementById('guest-greeting');
+  if (guestGreetingElem) {
+    guestGreetingElem.textContent = greeting;
+  }
+}
+
+// 2. Инициализация анимаций появления
+function startRevealAnimations() {
+  if (!('IntersectionObserver' in window)) {
+    document.querySelectorAll('.reveal').forEach((el) => el.classList.add('visible'));
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.15
   });
-  status.textContent = 'Спасибо! Ваш ответ сохранён.';
-  status.style.color = '#2e7d32';
-  submit.textContent = 'Отправлено ✓';
-  form.reset();
-} catch (error) {
+
+  document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+}
+
+// 3. Открытие обложки
+const cover = document.getElementById('cover');
+const main = document.getElementById('invitation');
+const button = document.getElementById('open');
+
+button.addEventListener('click', () => {
+  main.removeAttribute('inert');
+  document.body.classList.remove('closed');
+  document.body.classList.add('opened');
+  cover.classList.add('leaving');
+
+  let animationsStarted = false;
+  const finishOpening = () => {
+    if (animationsStarted) return;
+    animationsStarted = true;
+    cover.style.display = 'none';
+    startRevealAnimations();
+  };
+
+  cover.addEventListener('transitionend', finishOpening, { once: true });
+  setTimeout(finishOpening, 1050); // Страховка при отсутствии transitionend
+}, { once: true });
+
+// 4. Обработка формы RSVP
+const form = document.getElementById('rsvp-form');
+const status = document.getElementById('rsvp-status');
+const submit = form.querySelector('button[type=submit]');
+const responseId = window.crypto?.randomUUID?.() ?? `${Date.now()}-${Math.random().toString(16).slice(2)}`;
+
+form.addEventListener('change', () => {
+  const isNo = form.elements.attendance.value === 'no';
+  const compField = document.getElementById('companions-field');
+  compField.hidden = isNo;
+  form.elements.companions.disabled = isNo;
+});
+
+form.addEventListener('submit', async (event) => {
+  event.preventDefault();
+  if (!form.reportValidity()) return;
+
+  submit.disabled = true;
+  status.textContent = 'Отправляем ответ…';
+
+  const data = Object.fromEntries(new FormData(form));
+  data.id = responseId;
+  data.invitation = greeting;
+
+  try {
+    await fetch('https://script.google.com/macros/s/AKfycbxxVvnoBnxQu3MAalO434EvN5kmyPxRf2_--VZlN8Shfa4UKV8Z-hcF0vGWJnGAlaURYQ/exec', {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(data)
+    });
+
+    status.textContent = 'Спасибо! Ваш ответ сохранён.';
+    status.style.color = '#2e7d32';
+    submit.textContent = 'Отправлено ✓';
+    form.reset();
+  } catch (error) {
     status.textContent = 'Произошла ошибка при отправке.';
     submit.disabled = false;
   }
