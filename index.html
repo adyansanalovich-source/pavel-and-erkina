@@ -324,34 +324,23 @@ musicToggle.addEventListener('click',()=>{if(weddingMusic.paused){if(weddingMusi
 
 // 1. Персональное обращение по ID гостя
 const params = new URLSearchParams(location.search);
-
-const rawG = (params.get('g') || '').trim();
-const guestCode = rawG.toUpperCase();
+const guestCode = (params.get('g') || '').trim().toUpperCase();
 const oldTo = (params.get('to') || '').trim();
 
 let greeting = '';
 
-// Новый формат: ?g=K7P4XM
-if (
-  /^[A-Z2-9]{6}$/.test(guestCode) &&
-  typeof WEDDING_GUESTS !== 'undefined' &&
-  WEDDING_GUESTS[guestCode]
-) {
+// Новый формат по ID: ?g=K7P4XM
+if (typeof WEDDING_GUESTS !== 'undefined' && WEDDING_GUESTS[guestCode]) {
   greeting = WEDDING_GUESTS[guestCode];
+} 
+// Старый формат именных ссылок: ?to=Имя_Фамилия
+else if (oldTo && oldTo.length <= 100) {
+  greeting = oldTo.replace(/_/g, ' ');
 }
 
-// Старые ссылки сохраняем рабочими
-else {
-  const oldGreeting = oldTo || rawG;
-
-  if (oldGreeting && oldGreeting.length <= 100) {
-    greeting = oldGreeting.replace(/_/g, ' ');
-  }
-}
-
+// Если персональное обращение найдено — подставляем его
 if (greeting) {
   const guestGreetingElem = document.getElementById('guest-greeting');
-
   if (guestGreetingElem) {
     guestGreetingElem.textContent = greeting;
   }
@@ -425,7 +414,7 @@ form.addEventListener('submit', async (event) => {
 
   const data = Object.fromEntries(new FormData(form));
   data.id = responseId;
-  data.invitation = greeting;
+  data.invitation = greeting || 'Общая ссылка (Дорогие друзья и родные)';
 
   try {
     await fetch('https://script.google.com/macros/s/AKfycbxxVvnoBnxQu3MAalO434EvN5kmyPxRf2_--VZlN8Shfa4UKV8Z-hcF0vGWJnGAlaURYQ/exec', {
