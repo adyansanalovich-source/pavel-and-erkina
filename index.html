@@ -310,7 +310,7 @@ h1, h2, h3, p { margin: 0; }
 
 
 <audio id="wedding-music" src="./AThousandYears.mp3" preload="auto" loop></audio>
-<button id="music-toggle" class="music-toggle" type="button" aria-label="Включить музыку" aria-pressed="false" hidden>♫ Включить музыку</button>
+<button id="music-toggle" class="music-toggle" type="button" aria-label="Включить музыку" aria-pressed="false" hidden>♫ Включить музыку</button> <script src="./guests.js"></script>
 <script>
 const weddingMusic=document.getElementById('wedding-music');
 const musicToggle=document.getElementById('music-toggle');
@@ -322,13 +322,36 @@ weddingMusic.addEventListener('pause',syncMusicButton);
 weddingMusic.addEventListener('error',()=>{musicToggle.textContent='♫ Повторить запуск';musicToggle.setAttribute('aria-label','Повторить запуск музыки');musicToggle.setAttribute('aria-pressed','false');});
 musicToggle.addEventListener('click',()=>{if(weddingMusic.paused){if(weddingMusic.error)weddingMusic.load();startWeddingMusic();}else weddingMusic.pause();});
 
-// 1. Именные параметры без риска URIError
+// 1. Персональное обращение по ID гостя
 const params = new URLSearchParams(location.search);
-const rawGreeting = params.get('g') || params.get('to');
-const greeting = rawGreeting && rawGreeting.length <= 100 ? rawGreeting.replace(/_/g, ' ') : '';
+
+const rawG = (params.get('g') || '').trim();
+const guestCode = rawG.toUpperCase();
+const oldTo = (params.get('to') || '').trim();
+
+let greeting = '';
+
+// Новый формат: ?g=K7P4XM
+if (
+  /^[A-Z2-9]{6}$/.test(guestCode) &&
+  typeof WEDDING_GUESTS !== 'undefined' &&
+  WEDDING_GUESTS[guestCode]
+) {
+  greeting = WEDDING_GUESTS[guestCode];
+}
+
+// Старые ссылки сохраняем рабочими
+else {
+  const oldGreeting = oldTo || rawG;
+
+  if (oldGreeting && oldGreeting.length <= 100) {
+    greeting = oldGreeting.replace(/_/g, ' ');
+  }
+}
 
 if (greeting) {
   const guestGreetingElem = document.getElementById('guest-greeting');
+
   if (guestGreetingElem) {
     guestGreetingElem.textContent = greeting;
   }
